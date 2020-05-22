@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Cwiczenia11.Configurations;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace Cwiczenia11.Models
 {
     public class DoctorDbContext : DbContext
     {
-        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Doctor> Doctor { get; set; }
 
         public DoctorDbContext()
         {
@@ -19,6 +20,21 @@ namespace Cwiczenia11.Models
         : base (options)
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new DoctorEfConfiguration());
+
+            modelBuilder.ApplyConfiguration(new MedicamentEfConfiguration());
+
+            modelBuilder.ApplyConfiguration(new PatientEfConfiguration());
+
+            modelBuilder.ApplyConfiguration(new PrescriptionEfConfiguration());
+
+            modelBuilder.ApplyConfiguration(new Prescription_MedicamentEfConfiguration());
         }
     }
 }
