@@ -17,6 +17,16 @@
     <Compile Remove="Migrations\20200522065118_AddedPatientTable.Designer.cs" />
     <Compile Remove="Migrations\20200522065335_AddedPatientTable.cs" />
     <Compile Remove="Migrations\20200522065335_AddedPatientTable.Designer.cs" />
+    <Compile Remove="Migrations\20200522122239_SeedDatabase.cs" />
+    <Compile Remove="Migrations\20200522122239_SeedDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20200522131359_SeedDatabase.cs" />
+    <Compile Remove="Migrations\20200522131359_SeedDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20200522131903_SeedDatabase.cs" />
+    <Compile Remove="Migrations\20200522131903_SeedDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20200522134236_SeedDatabase.cs" />
+    <Compile Remove="Migrations\20200522134236_SeedDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20200522135045_SeedDatabase.cs" />
+    <Compile Remove="Migrations\20200522135045_SeedDatabase.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
