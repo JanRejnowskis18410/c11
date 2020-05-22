@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cwiczenia11.Models;
+using Cwiczenia11.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,7 @@ namespace Cwiczenia11
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IDoctorDbService, EfDoctorDbService>();
             services.AddDbContext<DoctorDbContext>(options => 
             {
                 options.UseSqlServer("Data Source=db-mssql;Initial Catalog=s18410;Integrated Security=True");

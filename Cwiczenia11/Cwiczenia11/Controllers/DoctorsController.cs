@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cwiczenia11.DTOs;
 using Cwiczenia11.Models;
+using Cwiczenia11.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,16 +14,37 @@ namespace Cwiczenia11.Controllers
     [ApiController]
     public class DoctorsController : ControllerBase
     {
-        private readonly DoctorDbContext _context;
+        private readonly IDoctorDbService _service;
 
-        public DoctorsController(DoctorDbContext context)
+        public DoctorsController(IDoctorDbService service)
         {
-            _context = context;
+            _service = service;
         }
 
         [HttpGet]
-        public IActionResult GetPeople()
+        public IActionResult GetDoctors()
         {
+            return Ok(_service.GetDoctors());
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteDoctor(int id)
+        {
+            _service.DeleteDoctor(id);
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult CreateDoctor(Doctor doctor)
+        {
+            _service.CreateDoctor(doctor);
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateDoctor(UpdateDoctorRequest request, int id)
+        {
+            _service.UpdateDoctor(request, id);
             return Ok();
         }
     }
